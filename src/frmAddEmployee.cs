@@ -58,7 +58,7 @@ namespace hrms_win_app
                 {
                     MessageBox.Show("New employee added successfully!", "Add Employee",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmMain.isNewEmployeeAdded = true; // update flag to refresh main list of employees 
+                    frmShowEmployees.isNewEmployeeAdded = true; // update flag to refresh main list of employees 
                     this.Close();
                 }
                 else

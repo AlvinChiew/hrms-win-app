@@ -3,12 +3,12 @@ using System.Data.SqlClient;
 
 namespace hrms_win_app;
 
-public partial class frmMain : Form
+public partial class frmShowEmployees : Form
 {
     DBUtilities dbUtilities;
     public static bool isNewEmployeeAdded = false;
 
-    public frmMain()
+    public frmShowEmployees()
     {
         InitializeComponent();
         loadEmployeeData();
@@ -39,18 +39,6 @@ public partial class frmMain : Form
         lstEmployees.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         lstEmployees.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-    }
-
-    private void menuAddPosition_Click(object sender, EventArgs e)
-    {
-        frmAddPosition addPosition = new frmAddPosition();
-        addPosition.ShowDialog();
-    }
-
-    private void menuAddEmployee_Click(object sender, EventArgs e)
-    {
-        frmAddEmployee addEmployee = new frmAddEmployee();
-        addEmployee.ShowDialog();
     }
 
     private void tmrUpdate_Tick(object sender, EventArgs e)

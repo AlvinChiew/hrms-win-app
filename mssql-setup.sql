@@ -1,3 +1,5 @@
+// *** SETUP *** //
+
 CREATE DATABASE dbHrmsProj;
 
 CREATE TABLE dbHrmsProj.dbo.tblEmployees (
@@ -35,9 +37,20 @@ INSERT INTO dbHrmsProj.dbo.tblEmployees (
     EmailAddress
 ) VALUES 
     ('Alvin', 'Chiew', NULL, 10001, 'Male', '1992-02-22', 'Kuala Lumpur, Malaysia', '+6031324523', '+60181523523', 'alvin@email.com'),
-    ('Melvin', 'Cheong', 'Great', 10002, 'Male', '1982-04-30', 'Kedah, Malaysia', NULL, NULL, 'melvin@email.com')
+    ('Melvin', 'Cheong', 'Great', 10002, 'Male', '1982-04-30', 'Kedah, Malaysia', NULL, NULL, 'melvin@email.com');
 
+CREATE TABLE dbHrmsProj.dbo.tblUsers (
+    ID BIGINT NOT NULL PRIMARY KEY IDENTITY(10001,1),
+    UserID BIGINT NOT NULL,
+    UserName VARCHAR(255) NOT NULL,
+    UserPassword VARCHAR(255),
+    DateUpdate DATETIME DEFAULT GETDATE() NOT NULL
+);
 
+INSERT INTO dbHrmsProj.dbo.tblUsers (UserID, UserName, UserPassword)
+VALUES (10001, 'alv', 'alvpass'), (10002, 'mlv', 'mlvpass');
+    
+// *** TEST *** //
 
 SELECT e.*, p.PositionName 
 FROM dbHrmsProj.dbo.tblEmployees AS e
@@ -46,6 +59,5 @@ ON e.PositionID = p.PositionID
 ORDER BY ID;
 
 SELECT * FROM dbHrmsProj.dbo.tblPosition;
+SELECT * FROM dbHrmsProj.dbo.tblUsers;
 
-
-INSERT INTO tblEmployees(FirstName, LastName, MiddleName, PositionID     BDATE, Gender, HomeAddress, TelNo, MobileNo, EmailAddres)VALUES('Ker','JX','    ',10004    ,'1996/08/15    ','Male','Perak, Malaysia','    ','+60129405739','jker@email.com')

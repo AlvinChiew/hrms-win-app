@@ -136,9 +136,16 @@ namespace hrms_win_app
             try
             {
                 string? returnVal = "";
-                DataTable dt = queryTable("SELECT " + col + " FROM " + tbl +
-                                            (criteria.Length > 0 ? " WHERE " + criteria : ""));
-                foreach (DataRow dr in dt.Rows)
+                string query = "SELECT " + col + " FROM " + tbl +
+                                    (criteria.Length > 0 ? " WHERE " + criteria : "");
+                DataTable? dt = queryTable(query);
+
+                if (dt == null)
+                {
+                    return "";
+                }
+
+                foreach (DataRow? dr in dt.Rows)
                 {
                     returnVal = dr[col].ToString();
                 }

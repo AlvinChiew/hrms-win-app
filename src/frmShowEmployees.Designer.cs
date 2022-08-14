@@ -1,6 +1,6 @@
 ﻿namespace hrms_win_app;
 
-partial class frmMain
+partial class frmShowEmployees
 {
     /// <summary>
     ///  Required designer variable.
@@ -41,12 +41,7 @@ partial class frmMain
             this.colTelNo = new System.Windows.Forms.ColumnHeader();
             this.colMobNo = new System.Windows.Forms.ColumnHeader();
             this.colEmailAddress = new System.Windows.Forms.ColumnHeader();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuAdmin = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddEmployee = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddPosition = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstEmployees
@@ -68,10 +63,10 @@ partial class frmMain
             this.colEmailAddress});
             this.lstEmployees.FullRowSelect = true;
             this.lstEmployees.GridLines = true;
-            this.lstEmployees.Location = new System.Drawing.Point(12, 191);
+            this.lstEmployees.Location = new System.Drawing.Point(12, 12);
             this.lstEmployees.MultiSelect = false;
             this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(1367, 410);
+            this.lstEmployees.Size = new System.Drawing.Size(1367, 589);
             this.lstEmployees.TabIndex = 0;
             this.lstEmployees.UseCompatibleStateImageBehavior = false;
             this.lstEmployees.View = System.Windows.Forms.View.Details;
@@ -120,61 +115,22 @@ partial class frmMain
             // 
             this.colEmailAddress.Text = "Email Address";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAdmin});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1391, 33);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menuAdmin
-            // 
-            this.menuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAddEmployee,
-            this.menuAddPosition});
-            this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Size = new System.Drawing.Size(81, 29);
-            this.menuAdmin.Text = "Admin";
-            // 
-            // menuAddEmployee
-            // 
-            this.menuAddEmployee.Name = "menuAddEmployee";
-            this.menuAddEmployee.Size = new System.Drawing.Size(231, 34);
-            this.menuAddEmployee.Text = "Add Employee";
-            this.menuAddEmployee.Click += new System.EventHandler(this.menuAddEmployee_Click);
-            // 
-            // menuAddPosition
-            // 
-            this.menuAddPosition.Name = "menuAddPosition";
-            this.menuAddPosition.Size = new System.Drawing.Size(231, 34);
-            this.menuAddPosition.Text = "Add Position";
-            this.menuAddPosition.Click += new System.EventHandler(this.menuAddPosition_Click);
-            // 
             // tmrUpdate
             // 
             this.tmrUpdate.Enabled = true;
             this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
             // 
-            // frmMain
+            // frmShowEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1391, 613);
             this.Controls.Add(this.lstEmployees);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmMain";
+            this.Name = "frmShowEmployees";
             this.Text = "HRMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
     }
 
@@ -192,9 +148,5 @@ partial class frmMain
     private ColumnHeader colTelNo;
     private ColumnHeader colMobNo;
     private ColumnHeader colEmailAddress;
-    private MenuStrip menuStrip1;
-    private ToolStripMenuItem menuAdmin;
-    private ToolStripMenuItem menuAddEmployee;
-    private ToolStripMenuItem menuAddPosition;
     private System.Windows.Forms.Timer tmrUpdate;
 }
