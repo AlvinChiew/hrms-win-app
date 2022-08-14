@@ -38,5 +38,14 @@ INSERT INTO dbHrmsProj.dbo.tblEmployees (
     ('Melvin', 'Cheong', 'Great', 10002, 'Male', '1982-04-30', 'Kedah, Malaysia', NULL, NULL, 'melvin@email.com')
 
 
+
+SELECT e.*, p.PositionName 
+FROM dbHrmsProj.dbo.tblEmployees AS e
+INNER JOIN dbHrmsProj.dbo.tblPosition AS p
+ON e.PositionID = p.PositionID
+ORDER BY ID;
+
 SELECT * FROM dbHrmsProj.dbo.tblPosition;
-SELECT * FROM dbHrmsProj.dbo.tblEmployees;
+
+
+INSERT INTO tblEmployees(FirstName, LastName, MiddleName, PositionID     BDATE, Gender, HomeAddress, TelNo, MobileNo, EmailAddres)VALUES('Ker','JX','    ',10004    ,'1996/08/15    ','Male','Perak, Malaysia','    ','+60129405739','jker@email.com')
