@@ -60,4 +60,4 @@ ORDER BY ID;
 
 SELECT * FROM dbHrmsProj.dbo.tblPosition;
 SELECT * FROM dbHrmsProj.dbo.tblUsers;
-
+SELECT * FROM tblUsers WHERE UserName='alv' AND UserPassword='alvpass';

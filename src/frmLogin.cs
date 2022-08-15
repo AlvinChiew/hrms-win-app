@@ -25,9 +25,8 @@ namespace hrms_win_app
                 string username = txtUserName.Text;
                 string password = txtPassword.Text;
 
-                string id = dbUtilities.dataLookUp("UserID", "tblUsers", "UserName = '" + username +
-                                                    "' AND UserPassword = '" + password + "'");
-                if (!id.Equals(""))
+                bool valResult = validateUserLogin(username, password);
+                if (valResult)
                 {
                     MessageBox.Show("Authorized. Welcome!", "HRMS",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,9 +41,39 @@ namespace hrms_win_app
                 }
             }
             catch (Exception ex)
-            { 
-                
+            {
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private bool validateUserLogin(string username, string password)
+        {
+            bool result = false;
+            try
+            {
+                DataTable dt = dbUtilities.queryTable("SELECT * FROM dbHrmsProj.dbo.tblUsers " +
+                                                      "WHERE UserName='" + username + "' " +
+                                                      "AND UserPassword='" + password + "'");
+                if (dt == null)
+                {
+                    return false;
+                }
+
+                foreach(DataRow dr in dt.Rows)
+                {
+                    if (dr["UserName"].ToString().Equals(username, StringComparison.CurrentCultureIgnoreCase) &&
+                        dr["UserPassword"].ToString().Equals(password))
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+            }
+
+            return result;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

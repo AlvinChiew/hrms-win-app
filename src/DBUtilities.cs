@@ -58,7 +58,9 @@ namespace hrms_win_app
             }
             catch (Exception ex)
             {
-
+                string msg = ex.Message;
+                MessageBox.Show("Failed to connect to database.", "HRMS",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,9 +90,9 @@ namespace hrms_win_app
 
         public DataTable queryTable(string query)
         {
+            DataTable table = new DataTable();
             try
             {
-                DataTable table = new DataTable();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     openConnection();
@@ -105,7 +107,7 @@ namespace hrms_win_app
             catch(Exception ex)
             {
                 string msg = ex.Message;
-                return null;
+                return table;
             }
         }
 
